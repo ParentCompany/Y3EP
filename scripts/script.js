@@ -4,7 +4,7 @@ app.controller("myCtrl", function($scope) {
 
   
   $scope.fullName = function(obj) {
-    $scope.records[] = obj;
+    $scope.records = obj;
     console.log($scope.records);
   };
 
