@@ -8,42 +8,31 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
+    
 
 </head>
 
-<body ng-app="myApp" ng-controller="myCtrl" class="bg-light">
+<body ng-app="myApp" ng-controller="myCtrl" class="bg-dark">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Sina</a>
+    <a class="navbar-brand" href="#"><img src="assets/film.svg" width="30" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#addmovies" href="#">Add Movies</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+            <a class="nav-link" data-toggle="modal" data-target="#deletemovies" href="#">Delete Movies</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" data-toggle="modal" data-target="#rawjson" href="#">Show Raw JSON</a>
+            </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Help</button>
+        <input class="form-control mr-sm-2" type="search" ng-model="search" placeholder="Search Movies " aria-label="Search">
       </form>
     </div>
   </nav>
@@ -51,49 +40,19 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-3" >
-        <div class="col-12">
-            <div class="my-3 p-3 bg-white rounded shadow-sm">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Add Movies</h6>
-                <div class="media text-muted pt-3 flex-column ">
-             
-                    <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Title" aria-label="Title">
-                 
-                    <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Year" aria-label="Title">
-                   
-                    <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Duration" aria-label="Title">
-                    
-                    <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Budget" aria-label="Title">
-                <button class="btn btn-outline-primary my-2 my-sm-0 ml-auto" type="submit">Submit</button>
-                    
-                </div>
-                
-              </div>
-        </div>
+      <!-- <div class="col-3" >
         <div class="col-12" >
-            <div class="my-3 p-3 bg-white rounded shadow-sm" style="min-width: height ">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Search Movies</h6>
-                <div class="media text-muted pt-3 flex-column">
-                        <input class="form-control mr-sm-2 mb-3" ng-model="search" type="search" placeholder="Movie name" aria-label="Search">
-<!--                       
-                      <button class="btn btn-outline-primary my-2 my-sm-0 ml-auto"  type="submit">Search</button> -->
-                </div>
-              </div>
-        </div>
-        <div class="col-12" >
-            <div class="my-3 p-3 bg-white rounded shadow-sm" style="min-width: height ">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Delete Movies</h6>
+            <div class="my-3 p-3 bg-white rounded shadow-sm" >
+                <h6 class="border-bottom border-gray pb-2 mb-0">JSON Results</h6>
                
-                    <div class="media text-muted pt-3 flex-column">
-                        <input class="form-control mr-sm-2 mb-3" type="search" placeholder="Movie name" aria-label="Search">
-                      
-                      <button class="btn btn-outline-danger my-2 my-sm-0 ml-auto" type="submit">Delete</button>
+                    <div class="media text-muted pt-3  ">
+                        <textarea class="form-control " rows="20" >{{jsonresults}}</textarea>
                 </div>
                
               </div>
         </div>
-      </div>
-      <div class="col-9">
+      </div> -->
+      <div class="col-12">
         
 
           <div class="my-3 p-3 bg-white rounded shadow-sm">
@@ -109,23 +68,23 @@
                         </div>
                       </div>
                 </div> -->
-                <div class="col-12">
-                <table class="table table-hover">
+                <div class="col-12 table-responsive-sm">
+                <table class="table table-hover table-sm">
                     <thead>
                       <tr>
-                        <th ng-click="orderByMe('record.Title')" scope="col">Title</th>
-                        <th ng-click="orderByMe('record.Worldwide_Gross')" scope="col">Sales Worldwide</th>
+                        <th ng-click="orderByMe('Title')" scope="col">Title</th>
+                        <th  scope="col">Sales Worldwide</th>
                         <th scope="col">Budget</th>
-                        <th scope="col">IMDB Rating</th>
+                        <th ng-click="orderByMe('IMDB_Rating')" scope="col">IMDB Rating</th>
                         <th scope="col">Release Date</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="record in records | filter:search | orderBy:myOrderBy">
+                      <tr ng-modal ng-repeat="record in records | filter:search | orderBy:myOrderBy">
                         <td>{{record.Title}}</td>
-                        <td>${{record.Worldwide_Gross}}</td>
-                        <td>${{record.Production_Budget}}</td>
-                        <td>{{record.IMDB_Rating}}</td>
+                        <td>{{record.Worldwide_Gross | currency}}</td>
+                        <td>{{record.Production_Budget | currency}}</td>
+                        <td><span class="badge badge-dark">{{record.IMDB_Rating}}</span></td>
                         <td>{{record.Release_Date}}</td>
                       </tr>
                     </tbody>
@@ -136,6 +95,77 @@
         
       </div>
      
+    </div>
+  </div>
+
+  <!-- Modal Add Movies -->
+<div class="modal fade" id="addmovies" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Add Movies</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Title" aria-label="Title">
+                 
+            <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Sales Worldwide" aria-label="Title">
+           
+            <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Budget" aria-label="Title">
+            
+            <input class="form-control mr-sm-2 mb-3" type="text" placeholder="IMDB Rating" aria-label="Title">
+
+            <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Release Date" aria-label="Title">
+      
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Modal Delete Movies -->
+<div class="modal fade" id="deletemovies" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Add Movies</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Movie name" aria-label="Title">
+      
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+     <!-- Modal Delete Movies -->
+<div class="modal fade" id="rawjson" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Raw JSON</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-wrap">
+            <code>{{jsonresults}}</code>
+      
+        </div>
+
+      </div>
     </div>
   </div>
   
