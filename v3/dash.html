@@ -179,12 +179,12 @@
                       <th scope="row" class="name">
                       <div class="media align-items-center">
                       <div class="media-body">
-                      <span class="mb-0 text-sm">Argon Design System</span>
+                      <span class="mb-0 text-sm">X Men</span>
                       </div>
                       </div>
                       </th>
                       <td class="budget">
-                      $2500 USD
+                      $250000 USD
                       </td>
                       <td class="status">
                       <span class="badge badge-dot mr-4">
@@ -197,10 +197,10 @@
                       </td>
                       <td class="completion">
                       <div class="d-flex align-items-center">
-                      <span class="mr-2">60%</span>
+                      <span class="mr-2">70%</span>
                       <div>
                       <div class="progress">
-                      <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                      <div class="progress-bar bg-primary" role="progressbar"  style="width: 70%;"></div>
                       </div>
                       </div>
                       </div>
@@ -234,12 +234,15 @@
 		<div class="modal fade" id="modal-form-add" tabindex="-1" role="dialog" aria-labelledby="modal-form-add" aria-hidden="true">
 		<div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
 		<div class="modal-content">
+        <div class="modal-header my-1">
+            <h2 class="modal-title" id="modal-form-add">Fill in the fields</h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+            </button>
+          </div>
 		<div class="modal-body p-0">
 		<div class="card bg-secondary shadow border-0">
 		<div class="card-body px-lg-4 py-lg-4">
-		<div class="text-center text-muted mb-4">
-		<small>Fill in the info</small>
-		</div>
 		<form role="form">
 		<div class="form-group mb-3">
 		<div class="input-group input-group-alternative mb-2">
@@ -255,8 +258,8 @@
 		<input class="form-control" placeholder="Year" type="text">
 		</div>
 		</div>
-		<div class="text-center">
-		<button type="button" class="btn btn-success my-4">Add</button>
+		<div class="text-right">
+		<button type="button" class="btn btn-success my-1">Add</button>
 		</div>
 		</form>
 		</div>
@@ -270,12 +273,15 @@
 		<div class="modal fade" id="modal-form-edit" tabindex="-1" role="dialog" aria-labelledby="modal-form-edit" aria-hidden="true">
 			<div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
 				<div class="modal-content">
+            <div class="modal-header my-1">
+                <h2 class="modal-title" id="modal-form-edit">Edit the fields</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+              </div>
 					<div class="modal-body p-0">
 						<div class="card bg-secondary shadow border-0">
 							<div class="card-body px-lg-4 py-lg-4">
-								<div class="text-center text-muted mb-4">
-									<small>Edit the info</small>
-								</div>
 								<form role="form">
 									<div class="form-group mb-3">
 										<div class="input-group input-group-alternative mb-2">
@@ -291,8 +297,8 @@
 											<input class="form-control" placeholder="Year" type="text">
 										</div>
 									</div>
-									<div class="text-center">
-										<button type="button" class="btn btn-success my-4">Edit</button>
+									<div class="text-right">
+										<button type="button" class="btn btn-success my-1">Edit</button>
 									</div>
 								</form>
 							</div>
@@ -307,7 +313,7 @@
 		<div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h2 class="modal-title" id="modal-title-default">Are you sure though?</h2>
+					<h2 class="modal-title" id="modal-form-delete">Are you sure though?</h2>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">×</span>
 					</button>
