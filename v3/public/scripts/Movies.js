@@ -3,7 +3,6 @@
 function Movies() {
 
     var that = this;
-
     firebase.firestore().enablePersistence()
         .then(function () {
             return firebase.auth().signInAnonymously();
@@ -13,6 +12,7 @@ function Movies() {
             that.initRouter();
             that.initModalDialog();
             that.initSearchFilterDialog();
+            
         }).catch(function (err) {
             console.log(err);
         });

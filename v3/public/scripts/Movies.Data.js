@@ -2,6 +2,7 @@
 
 Movies.prototype.getAllStats = function () {
     var that = this;
+
     const query = firebase.firestore()
         .collection('Stats').get().then((querySnapshot) => {
             querySnapshot.forEach(function (doc) {
@@ -11,6 +12,7 @@ Movies.prototype.getAllStats = function () {
 };
 
 Movies.prototype.increaseStats = function (docName) {
+    
     const collection = firebase.firestore().collection('Stats');
     let docRef = collection.doc(docName);
 

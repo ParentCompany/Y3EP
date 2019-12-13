@@ -10,6 +10,7 @@ Movies.prototype.initTemplates = function () {
     document.querySelectorAll('.template').forEach(function (el) {
         that.templates[el.getAttribute('id')] = el;
     });
+
 };
 
 Movies.prototype.viewHome = function () {
@@ -28,17 +29,18 @@ Movies.prototype.viewList = function (nameFilter) {
             return;
         }
 
+
         var data = doc.data();
         data['.id'] = doc.id;
 
         let rowID = '#' + Movies.ID_CONSTANT + doc.id;
-        var existingRestaurantCardEl = document.querySelector(rowID);
-        var el = existingRestaurantCardEl || that.renderTemplate('table-row', data);
+        var existingMovieCardEl = document.querySelector(rowID);
+        var el = existingMovieCardEl || that.renderTemplate('table-row', data);
 
-        if (!existingRestaurantCardEl) {
+        if (!existingMovieCardEl) {
             renderedTableBody.append(el);
         } else {
-            that.render(existingRestaurantCardEl, data);
+            that.render(existingMovieCardEl, data);
         }
     };
 
@@ -81,9 +83,10 @@ Movies.prototype.initModalDialog = function () {
     });
 
     editDialog.querySelector('#edit-action').addEventListener('click', function () {
-        var data = {};
 
+        var data = {};
         var validated = true
+        
         editDialog.querySelectorAll('input').forEach(inputElement => {
             if (inputElement.value == '') { validated = false }
             data[inputElement.id] = inputElement.value;
