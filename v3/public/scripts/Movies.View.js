@@ -79,6 +79,7 @@ Movies.prototype.initModalDialog = function () {
         if (validated) {
             that.addMovie(data);
             document.querySelector("#add-dismiss").click();
+            setTimeout(function(){ swal("Way to go!", "You have successfully added a new movie!", "success"); }, 800);
         }
     });
 
@@ -95,6 +96,7 @@ Movies.prototype.initModalDialog = function () {
         if (validated) {
             that.updateMovie(that.selectedID, data);
             document.querySelector("#edit-dismiss").click();
+            setTimeout(function(){ swal("Looks way better now!", "You have successfully edited a movie!", "success"); }, 800);
         }
     });
 
@@ -102,6 +104,7 @@ Movies.prototype.initModalDialog = function () {
     deleteDialog.querySelector('#delete-action').addEventListener('click', function () {
         that.deleteMovie(that.selectedID);
         document.querySelector("#delete-dismiss").click();
+        setTimeout(function(){ swal("On its way to the bin!", "You have successfully deleted a movie!", "success"); }, 800);
     });
 };
 
@@ -165,7 +168,7 @@ Movies.prototype.render = function (el, data) {
             var field = tel.getAttribute('data-fir-review');
 
             let review = that.getDeepItem(data, field);
-            let reviewPercentage = review * 10 + '%';
+            let reviewPercentage = review + '%';
             tel.querySelector('span').innerText = reviewPercentage;
             tel.querySelector('#review-progress').setAttribute('style', 'width: ' + reviewPercentage);
         },
