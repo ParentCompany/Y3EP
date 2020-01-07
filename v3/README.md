@@ -33,6 +33,6 @@ firebase serve
 ```
 # More
 
-Please make sure you do look at top navbar on the website where it says "More", It is a dropdown menu for more content that I would like you to have a glance. (Screenshot below)
+Please make sure you do look at top navbar on the website where it says "Extras", It is a dropdown menu for more content that I would like you to have a glance. (Screenshot below)
 
 ![Screenshot](https://i.ibb.co/qNPPDW7/Opera-Snapshot-2020-01-06-140430-localhost.png)
