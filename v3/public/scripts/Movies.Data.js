@@ -1,4 +1,6 @@
 'use strict';
+ 
+// creating instance of the Movie class for stat collection from firebase
 
 Movies.prototype.getAllStats = function () {
     var that = this;
@@ -10,6 +12,8 @@ Movies.prototype.getAllStats = function () {
             });
         });
 };
+
+// this part will get the data from the server by going to the right collection that I have created on firebase 
 
 Movies.prototype.increaseStats = function (docName) {
     
@@ -32,6 +36,9 @@ Movies.prototype.increaseStats = function (docName) {
         console.log("Error getting document:", error);
     });
 };
+
+// this section is just getting/adding data to the collection of the stats
+
 
 Movies.prototype.addMovie = function (data) {
     const collection = firebase.firestore().collection('Movies');
@@ -57,6 +64,8 @@ Movies.prototype.deleteMovie = function (movieID) {
     });
 };
 
+
+// this will get all the movies and reorders them by the name after a sync 
 
 Movies.prototype.getAllMovies = function (render) {
     const query = firebase.firestore()

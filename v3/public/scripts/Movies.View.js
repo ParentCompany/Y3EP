@@ -1,5 +1,7 @@
 'use strict';
 
+// This section is responsible for formatting and updating the html with right data from user or from server.
+
 Movies.ID_CONSTANT = 'fir-';
 var selectedID = '';
 
