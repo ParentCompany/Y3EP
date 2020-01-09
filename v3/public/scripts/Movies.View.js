@@ -15,14 +15,20 @@ Movies.prototype.initTemplates = function () {
 
 };
 
+// this calls the all movies function to retrive all the data from firestore
+
 Movies.prototype.viewHome = function () {
     this.getAllMovies();
 };
+
+// 
 
 Movies.prototype.viewList = function (nameFilter) {
     var tableBody = this.renderTemplate('table-body');
     var renderedTableBody = document.querySelector('#table-body');
     var that = this;
+
+    // incase the data is 0 so it wont shows rows of empty table on html
     var renderResults = function (doc) {
 
         if (!doc) {
@@ -31,6 +37,7 @@ Movies.prototype.viewList = function (nameFilter) {
             return;
         }
 
+// creating table rows to populate the data inside them
 
         var data = doc.data();
         data['.id'] = doc.id;
@@ -61,6 +68,8 @@ Movies.prototype.viewSetup = function () {
     //In case we need some initial config later
 };
 
+// initiating all the modals for data collection from the user 
+
 Movies.prototype.initModalDialog = function () {
 
     let addDialog = document.querySelector('#modal-form-add');
@@ -77,7 +86,7 @@ Movies.prototype.initModalDialog = function () {
             data[inputElement.id] = inputElement.value;
             inputElement.value = '';
         });
-
+// sending the data to firestore and alerting the user that it has been successful. the application will save the data even if you are offline.
         if (validated) {
             that.addMovie(data);
             document.querySelector("#add-dismiss").click();
@@ -110,6 +119,8 @@ Movies.prototype.initModalDialog = function () {
     });
 };
 
+// this is for the search action section 
+
 Movies.prototype.initSearchFilterDialog = function () {
 
     let searchInput = document.querySelector('#search-input');
@@ -119,7 +130,7 @@ Movies.prototype.initSearchFilterDialog = function () {
     searchButton.addEventListener('click', function () {
         that.viewList(searchInput.value);
     });
-
+// when you delete it it will clear the value
 
     searchInput.addEventListener('keyup', function () {
         if (searchInput.value == '') {
@@ -134,6 +145,8 @@ Movies.prototype.initSearchFilterDialog = function () {
         }
     })
 };
+
+
 
 Movies.prototype.renderTemplate = function (id, data) {
     var template = this.templates[id];
@@ -151,7 +164,7 @@ Movies.prototype.renderTemplate = function (id, data) {
     return el;
 };
 
-
+// this is just for the data to be shown on the HTML for all sections so i will not be commenting as its very easy to undrestand due to the variable name used
 
 Movies.prototype.render = function (el, data) {
 
@@ -222,6 +235,7 @@ Movies.prototype.replaceElement = function (parent, content) {
     parent.append(content);
 };
 
+// This is the delete process that will first sync the data with the firebase firestore then it updates the View or the HTML
 
 Movies.prototype.deleteElement = function (doc) {
     var data = doc.data();
@@ -232,16 +246,19 @@ Movies.prototype.deleteElement = function (doc) {
     rowElement.parentElement.removeChild(rowElement);
 };
 
-
+// This is the navigator or the task router that requires a time stamp in order to verfiy
 
 Movies.prototype.rerender = function () {
     this.router.navigate(document.location.pathname + '?' + new Date().getTime());
 };
 
+// the budget showed as a full integer so I had to add a dollar sign before the integer
+
 Movies.prototype.renderBudget = function (price) {
     return '$' + price;
 };
 
+// This part will try to get the data from the firbase and mask the data on the element on HTML 
 
 Movies.prototype.renderStats = function (statState, value) {
     let labelElement = document.querySelector('#' + statState + '-movies');
